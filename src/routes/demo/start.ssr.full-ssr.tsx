@@ -3,11 +3,13 @@ import { getPunkSongs } from '@/data/demo.punk-songs'
 
 export const Route = createFileRoute('/demo/start/ssr/full-ssr')({
   component: RouteComponent,
-  loader: async () => await getPunkSongs(),
+  loader: async () => await getPunkSongs() as Array<{ id: number, name: string, artist: string }>,
 })
 
 function RouteComponent() {
-  const punkSongs = Route.useLoaderData()
+  console.log('RouteComponent SSR Full SSR rendered')
+
+  const punkSongs = Route.useLoaderData() as Array<{ id: number, name: string, artist: string }>
 
   return (
     <div

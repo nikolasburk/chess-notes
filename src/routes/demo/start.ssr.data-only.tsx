@@ -8,6 +8,7 @@ export const Route = createFileRoute('/demo/start/ssr/data-only')({
 })
 
 function RouteComponent() {
+  console.log('RouteComponent SSR Data Only rendered')
   const punkSongs = Route.useLoaderData()
 
   return (
@@ -23,7 +24,7 @@ function RouteComponent() {
           Data Only SSR - Punk Songs
         </h1>
         <ul className="space-y-3">
-          {punkSongs.map((song) => (
+          {punkSongs.map((song: any) => (
             <li
               key={song.id}
               className="bg-white/10 border border-white/20 rounded-lg p-4 backdrop-blur-sm shadow-md"

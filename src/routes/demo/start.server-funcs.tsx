@@ -47,12 +47,13 @@ const addTodo = createServerFn({ method: 'POST' })
 
 export const Route = createFileRoute('/demo/start/server-funcs')({
   component: Home,
-  loader: async () => await getTodos(),
+  loader: async () => await getTodos() as Array<{ id: number, name: string }>,
 })
 
 function Home() {
+  console.log('Home component rendered')
   const router = useRouter()
-  let todos = Route.useLoaderData()
+  let todos = Route.useLoaderData() as Array<{ id: number, name: string }>
 
   const [todo, setTodo] = useState('')
 
