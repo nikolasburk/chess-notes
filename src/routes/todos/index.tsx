@@ -16,7 +16,6 @@ function RouteComponent() {
 
   const { store } = useStore()
   const allTodos = store.useQuery(todos$) 
-  console.log('allTodos', allTodos)
 
   const [newTodoText, setNewTodoText] = useState('')
 
@@ -30,6 +29,7 @@ function RouteComponent() {
         onChange={(e) => setNewTodoText(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
+            console.log(`save todo '${newTodoText}' in store: ${store.storeId}`)
             store.commit(
               events.addTodo({ id: crypto.randomUUID(), name: newTodoText }),
             )

@@ -29,7 +29,7 @@ function App() {
             to="/todos"
             className="inline-block text-base font-medium py-2 px-6 rounded border border-gray-300 bg-white text-gray-800 hover:bg-gray-100 transition"
           >
-            Get Started
+            View TODOs
           </Link>
         </div>
       </section>
