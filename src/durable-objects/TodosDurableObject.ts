@@ -14,7 +14,7 @@ export class TodosDurableObject extends DurableObject<Env> {
   private async initializeTodos() {
     // Load existing todos from storage
     const stored = await this.ctx.storage.get('todos') as Array<{ id: number, name: string }>
-    if (stored.length > 0) {
+    if (stored && stored.length > 0) {
       this.todos = stored as Array<{ id: number, name: string }>
     } else {
       // Initialize with default todos
