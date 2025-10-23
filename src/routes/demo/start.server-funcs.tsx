@@ -2,6 +2,7 @@
 import { useCallback, useState } from 'react'
 import { createFileRoute, useRouter } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
+import { env } from "cloudflare:workers";
 
 /*
 const loggingMiddleware = createMiddleware().server(
@@ -17,21 +18,20 @@ const loggedServerFunction = createServerFn({ method: "GET" }).middleware([
 
 const getTodos = createServerFn({
   method: 'GET',
-}).handler(async ({ context }: any) => {
+}).handler(async () => {
 
-  console.log('getTodos server function called', context)
-  const env = context.env as Env
+  console.log('getTodos server function called')
 
   const stub = env.TODOS_DO.getByName("todos")
+  console.log('getTodos stub', stub)
   const todos = await stub.getTodos()
+  console.log('getTodos todos', todos)
   return todos
 })
 
 const addTodo = createServerFn({ method: 'POST' })
   .inputValidator((d: string) => d)
-  .handler(async ({ context, data }: any) => {
-
-    const env = context.env as Env
+  .handler(async ({ data }: any) => {
 
     const stub = env.TODOS_DO.getByName("todos")
     await stub.addTodo(data)
