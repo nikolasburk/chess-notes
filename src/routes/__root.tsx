@@ -12,7 +12,6 @@ import Header from '../components/Header'
 
 import appCss from '../styles.css?url'
 
-
 const adapter = makePersistedAdapter({
   storage: { type: 'opfs' },
   worker: LiveStoreWorker,
@@ -65,7 +64,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           adapter={adapter}
           renderLoading={(_) => <div>Loading LiveStore ({_.stage})...</div>}
           batchUpdates={batchUpdates}
-          storeId="my-app-store"
+          storeId="my-todos"
         >
           {children}
         </LiveStoreProvider>
