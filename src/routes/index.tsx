@@ -1,5 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
-
+import { createFileRoute, Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({ component: App })
 
@@ -23,9 +22,15 @@ function App() {
               </span>
             </h1>
           </div>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
+          <p className="text-lg text-gray-700 mb-4">
             Simple TODO App with LiveStore and TanStack Start
-          </p>  
+          </p>
+          <Link
+            to="/todos"
+            className="inline-block text-base font-medium py-2 px-6 rounded border border-gray-300 bg-white text-gray-800 hover:bg-gray-100 transition"
+          >
+            Get Started
+          </Link>
         </div>
       </section>
 

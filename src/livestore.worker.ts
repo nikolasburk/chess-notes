@@ -1,5 +1,5 @@
-// import { makeWorker } from '@livestore/adapter-web/worker'
+import { makeWorker } from '@livestore/adapter-web/worker'
 
-// import { schema } from './livestore/schema.ts'
+import { schema } from './livestore/schema.ts'
 
-// makeWorker({ schema })
+makeWorker({ schema })
