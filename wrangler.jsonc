@@ -16,6 +16,11 @@
       "new_sqlite_classes": [
         "TodosDurableObject"
       ]
+    }, {
+      "tag": "v2",
+      "new_sqlite_classes": [
+        "SyncBackendDO"
+      ]
     }
   ]
 }
