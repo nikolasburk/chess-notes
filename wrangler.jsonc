@@ -3,5 +3,19 @@
   "name": "chess-notes",
   "compatibility_date": "2025-09-02",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "@tanstack/react-start/server-entry"
+  "main": "./src/server-entry.ts",  // Changed from "@tanstack/react-start/server-entry"
+  "durable_objects": {
+    "bindings": [{
+      "name": "TODOS_DO",
+      "class_name": "TodosDurableObject"
+    }]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "TodosDurableObject"
+      ]
+    }
+  ]
 }
